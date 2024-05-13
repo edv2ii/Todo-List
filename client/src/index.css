@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Jellybear Thin";
+  src: url("./JellybearThin.ttf") format("truetype"); /* Adjust the path as needed */
+  /* You can add other font formats (woff, woff2, etc.) and their paths here */
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  font-family: "JellyBear Thin", sans-serif;
+  margin: 0;
+}
