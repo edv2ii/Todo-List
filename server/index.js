@@ -44,7 +44,6 @@ app.use("/", (req, res) => {
   res.send("server is running")
 })
 
-
 // สร้างเส้นทางของคุณและเริ่มต้นเซิร์ฟเวอร์
 app.use("/todos", todoRoutes);
 const PORT = process.env.PORT || 3000;
