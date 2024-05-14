@@ -40,7 +40,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("server is running")
 })
 
