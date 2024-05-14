@@ -20,6 +20,7 @@ exports.createTodo = async (req, res) => {
 
   try {
     const savedTodo = await newTodo.save();
+    console.log("Please wait")
     res.status(201).json(savedTodo);
   } catch (error) {
     console.error("Error creating todo:", error);
@@ -31,7 +32,7 @@ exports.createTodo = async (req, res) => {
 exports.updateTodo = async (req, res) => {
   const { id } = req.params;
   const { text, completed } = req.body;
-
+  console.log(text)
   try {
     const updatedTodo = await Todo.findByIdAndUpdate(id, { text, completed }, { new: true });
     res.status(200).json(updatedTodo);
@@ -43,10 +44,9 @@ exports.updateTodo = async (req, res) => {
 
 // Controller to delete a todo
 exports.deleteTodo = async (req, res) => {
-  const { _id } = req.params;
-
+  const { id } = req.params;
   try {
-    await Todo.findByIdAndDelete(_id);
+    await Todo.findByIdAndDelete(id);
     res.status(200).json({ message: "Todo deleted successfully" });
   } catch (error) {
     console.error("Error deleting todo:", error);
