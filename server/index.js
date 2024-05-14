@@ -4,9 +4,16 @@ const todoRoutes = require("./routes/todo.routes.js");
 const dotenv = require("dotenv")
 const cors = require("cors");
 
-dotenv.config()
+const corsConfing = {
+  origin: "*",
+  credential: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}
 
+dotenv.config()
 const app = express();
+app.options("", cors(corsConfing))
+app.use(cors(corsConfing));
 app.use(express.json());
 
 // Connect to MongoDB
@@ -21,7 +28,6 @@ db.once("open", () => {
 // Routes setup
 
 // ใช้ CORS middleware
-app.use(cors());
 
 // หรือกำหนดส่วนหัว CORS เอง
 app.use((req, res, next) => {
@@ -41,5 +47,7 @@ app.use((req, res, next) => {
 app.use("/todos", todoRoutes);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
+
   console.log(`Server is running on port ${PORT}`);
+  res.send("server is running")
 });
