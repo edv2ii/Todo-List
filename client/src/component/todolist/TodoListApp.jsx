@@ -150,7 +150,6 @@ function TodoListApp() {
       ...updatedTodos[editIndex],
       text: editValue,
     };
-    console.log();
     setTodos(updatedTodos);
     setEditIndex(null);
     setEditValue("");
@@ -244,7 +243,7 @@ function TodoListApp() {
       {
         <ul className="todolist">
           {todos.map((todo, index) => (
-            <li key={index} style={{ "--color": todo.color }} onClick={(e) => editTodo(index)} >
+            <li key={index} style={{ "--color": todo.color }}  >
               <img
                 id="check"
                 src={
@@ -277,17 +276,17 @@ function TodoListApp() {
                     style={{
                       textDecoration: todo.completed ? "line-through" : "none",
                     }}
-                    onClick={() => toggleComplete(index)}
+                    
                   >
                     <p>{todo.text}</p>
                   </span>
                 )}
                 <div className="btn">
-                  {/* {editIndex !== index && (
+                  {editIndex !== index && (
                     <button id="edit" onClick={() => editTodo(index)}>
                       Edit
                     </button>
-                  )} */}
+                  )}
                   
                   <button id="remove" onClick={() => removeTodo(index)}>
                     Remove
