@@ -16,20 +16,17 @@ app.options("", cors(corsConfing))
 app.use(cors(corsConfing));
 app.use(express.json());
 
+
+if (!process.env.MONGO_URI) {
+  throw new Error('MONGO_URI environment variable is not defined');
+}
+
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-});
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-db.once("open", () => {
-  console.log("Connected to MongoDB");
-});
+mongoose.connect(process.env.MONGO_URI)
+.then(() => console.log("Connected to MongoDB"))
+.catch(err => console.error("MongoDB connection error:", err));
 
 // Routes setup
-
-// ใช้ CORS middleware
-
-// หรือกำหนดส่วนหัว CORS เอง
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
