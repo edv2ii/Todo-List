@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import heart1 from "../../icon/heart/heart1.png"
+import heart2 from "../../icon/heart/heart2.png"
+
 
 import "./todolistapp.css";
 
@@ -241,8 +244,8 @@ function TodoListApp() {
                 id="check"
                 src={
                   todo.completed
-                    ? "./src/icon/heart/heart2.png"
-                    : "./src/icon/heart/heart1.png"
+                    ? `${heart2}`
+                    : `${heart1}`
                 }
                 alt={todo.completed ? "Checked Icon" : "Unchecked Icon"}
                 onClick={() => toggleComplete(index)}
@@ -300,8 +303,8 @@ function TodoListApp() {
               id="check"
               src={
                 todo.completed
-                  ? "src/icon/heart/heart2.png"
-                  : "src/icon/heart/heart1.png"
+                  ? `${heart2}`
+                  : `${heart1}`
               }
               alt={todo.completed ? "Checked Icon" : "Unchecked Icon"}
               onClick={() => moveBackToTodo(index)}
