@@ -11,6 +11,10 @@ function TodoListApp() {
   const [inputValue, setInputValue] = useState("");
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState("");
+
+
+  const api = "https://todo-list-seven-ecru-62.vercel.app"
+
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -18,7 +22,7 @@ function TodoListApp() {
   const fetchTodos = async () => {
     try {
       const response = await fetch(
-        "https://todo-list-seven-ecru-62.vercel.app/todos/get"
+        `${api}/todos/get`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch todos");
@@ -53,7 +57,7 @@ function TodoListApp() {
 
         setTodos([...todos, newTodo]);
         setInputValue("");
-        const response = await fetch("http://localhost:5050/todos/create", {
+        const response = await fetch(`${api}/todos/create`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -75,7 +79,7 @@ function TodoListApp() {
     setTodos(todos.filter((todo, index) => index !== indexToRemove));
     try {
       const response = await fetch(
-        `https://todo-list-seven-ecru-62.vercel.app/todos/${todos[indexToRemove]._id}`,
+        `${api}/todos/${todos[indexToRemove]._id}`,
         {
           method: "DELETE",
           headers: {
@@ -110,7 +114,7 @@ function TodoListApp() {
       }
       // Send PUT request to update the todo item in the backend
       const response = await fetch(
-        `https://todo-list-seven-ecru-62.vercel.app/todos/${updatedTodo._id}`,
+        `${api}/todos/${updatedTodo._id}`,
         {
           method: 'PUT',
           headers: {
@@ -153,7 +157,7 @@ function TodoListApp() {
 
     try {
       const response = await fetch(
-        `https://todo-list-seven-ecru-62.vercel.app/todos/${todos[editIndex]._id}`,
+        `${api}/todos/${todos[editIndex]._id}`,
         {
           method: "PUT",
           headers: {
@@ -178,7 +182,7 @@ function TodoListApp() {
       setFinishedTodos(finishedTodos.filter((todo, index) => index !== indexToMove));
       // Send PUT request to update the todo item in the backend
       const response = await fetch(
-        `https://todo-list-seven-ecru-62.vercel.app/todos/${updatedTodo._id}`,
+        `${api}/todos/${updatedTodo._id}`,
         {
           method: 'PUT',
           headers: {
