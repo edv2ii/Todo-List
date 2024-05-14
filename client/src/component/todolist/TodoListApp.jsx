@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import heart1 from "../../icon/heart/heart1.png"
 import heart2 from "../../icon/heart/heart2.png"
 
@@ -11,7 +11,7 @@ function TodoListApp() {
   const [inputValue, setInputValue] = useState("");
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState("");
-
+  const inputRef = useRef(null);
 
   const api = "https://todo-list-seven-ecru-62.vercel.app"
 
@@ -56,6 +56,7 @@ function TodoListApp() {
         };
 
         setTodos([...todos, newTodo]);
+        inputRef.current.focus();
         setInputValue("");
         const response = await fetch(`${api}/todos/create`, {
           method: "POST",
@@ -68,7 +69,6 @@ function TodoListApp() {
           throw new Error("Failed to add todo");
         }
         await fetchTodos();
-        setInputValue("");
       } catch (error) {
         console.error("Error adding todo:", error);
       }
@@ -237,6 +237,7 @@ function TodoListApp() {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Enter your task..."
+          ref={inputRef}
         />
         <button onClick={addTodo}>Add</button>
       </div>
