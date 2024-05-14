@@ -244,7 +244,7 @@ function TodoListApp() {
       {
         <ul className="todolist">
           {todos.map((todo, index) => (
-            <li key={index} style={{ "--color": todo.color }}>
+            <li key={index} style={{ "--color": todo.color }} >
               <img
                 id="check"
                 src={
@@ -263,6 +263,12 @@ function TodoListApp() {
                     value={editValue}
                     onChange={(e) => setEditValue(e.target.value)}
                     onBlur={(e) => saveEdit(index)}
+                    style={{
+                      background: "transparent",
+                      border: "none",
+                      padding: '5px',
+                      fontSize: '16px',
+                    }}
                     autoFocus
                   />
                 ) : (
@@ -277,11 +283,12 @@ function TodoListApp() {
                   </span>
                 )}
                 <div className="btn">
-                  {editIndex !== index && (
+                  {/* {editIndex !== index && (
                     <button id="edit" onClick={() => editTodo(index)}>
                       Edit
                     </button>
-                  )}
+                  )} */}
+                  
                   <button id="remove" onClick={() => removeTodo(index)}>
                     Remove
                   </button>
