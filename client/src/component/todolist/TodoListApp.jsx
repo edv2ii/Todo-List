@@ -244,7 +244,7 @@ function TodoListApp() {
       {
         <ul className="todolist">
           {todos.map((todo, index) => (
-            <li key={index} style={{ "--color": todo.color }} >
+            <li key={index} style={{ "--color": todo.color }} onClick={(e) => editTodo(index)} >
               <img
                 id="check"
                 src={
