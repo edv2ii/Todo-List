@@ -3,6 +3,9 @@ import styled from "styled-components"
 const Navigation = styled.div`
     height: 100px;
     display: flex;
+    position: fixed;
+    right:0;
+    top: 0;
     justify-content: end;
 `
 

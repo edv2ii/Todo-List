@@ -20,7 +20,7 @@ exports.createTodo = async (req, res) => {
 
   try {
     const savedTodo = await newTodo.save();
-    console.log("Please wait")
+    res.send(newTodo)
     res.status(201).json(savedTodo);
   } catch (error) {
     console.error("Error creating todo:", error);

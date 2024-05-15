@@ -1,17 +1,24 @@
 .float-bottom {
-    height: 30px;
+    height: 80px;
     width: 100%;
     z-index: 1;
     background: red;
+    position: fixed;
+    bottom: 0;
 }
 
 .background {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    height: 80px;
+    position: relative;
 }
 
 .rec {
-    height: 20px;
+    position: absolute;
+    height: 50px;
     width: 100%;
-    border-radius: 50px 0 0 0 ;
-    background-color: #FFEBE5;
+    bottom:0;
+    border-radius: 0px 50px 0 0 ;
+    background-color: #FFEBE5; 
+    z-index: 20;
 }
