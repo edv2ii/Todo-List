@@ -1,8 +1,7 @@
 .float-bottom {
-    height: 80px;
+    height: 70px;
     width: 100%;
     z-index: 1;
-    background: red;
     position: fixed;
     bottom: 0;
 }
@@ -15,7 +14,7 @@
 
 .rec {
     position: absolute;
-    height: 50px;
+    height: 60px;
     width: 100%;
     bottom:0;
     border-radius: 0px 50px 0 0 ;
