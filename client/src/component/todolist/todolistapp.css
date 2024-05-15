@@ -33,6 +33,8 @@
     margin-top: 10px;
     list-style: none;
     display: grid;
+    height: 450px;
+    overflow: scroll;
 }
 
 .todolist li {

@@ -7,6 +7,7 @@ const Navigation = styled.div`
     right:0;
     top: 0;
     justify-content: end;
+    z-index: 2;
 `
 
 const Title = styled.div `
